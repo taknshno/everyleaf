@@ -206,6 +206,8 @@ ja:
       status: ステータス
       priority: 優先度
       end_date: 期限
+      created_at: 作成日時
+      updated_at: 更新日時
       create_task: "タスクの新規作成"
       edit_task: "タスクの編集"
       created_task: "タスクを作成しました"

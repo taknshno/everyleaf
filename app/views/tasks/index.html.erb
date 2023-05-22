@@ -11,6 +11,7 @@
       <th><%= I18n.t('views.messages.status') %></th>
       <th><%= I18n.t('views.messages.priority') %></th>
       <th><%= I18n.t('views.messages.end_date') %></th>
+      <th><%= I18n.t('views.messages.created_at') %></th>
     </tr>
     <% @tasks.each do |task| %>
       <tr>
@@ -19,6 +20,7 @@
         <td><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= task.end_date %></td>
+        <td><%= task.created_at.strftime('%Y年%-m月%-d日 %H:%M') %></td>
         <td>[<%= link_to I18n.t('views.button.show'), task_path(task.id) %>]</td>
         <td>[<%= link_to I18n.t('views.button.edit'), edit_task_path(task.id) %>]</td>
         <td>[<%= link_to I18n.t('views.button.delete'), task_path(task.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>]</td>
