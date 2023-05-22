@@ -3,7 +3,7 @@
 <div>
   <p><%= link_to I18n.t('views.messages.create_task'), new_task_path %></p>
 </div>
-<div>
+<div class="task_list">
   <table>
     <tr>
       <th><%= I18n.t('views.messages.task_name') %></th>
@@ -15,15 +15,15 @@
     </tr>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.task_name %></td>
-        <td><%= task.task_detail %></td>
-        <td><%= task.status %></td>
-        <td><%= task.priority %></td>
-        <td><%= task.end_date %></td>
-        <td><%= task.created_at.strftime('%Y年%-m月%-d日 %H:%M') %></td>
-        <td>[<%= link_to I18n.t('views.button.show'), task_path(task.id) %>]</td>
-        <td>[<%= link_to I18n.t('views.button.edit'), edit_task_path(task.id) %>]</td>
-        <td>[<%= link_to I18n.t('views.button.delete'), task_path(task.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>]</td>
+        <td class="task_name"><%= task.task_name %></td>
+        <td class="task_detail"><%= task.task_detail %></td>
+        <td class="status"><%= task.status %></td>
+        <td class="piroirity"><%= task.priority %></td>
+        <td class="end_date"><%= task.end_date %></td>
+        <td class="created_at"><%= task.created_at.strftime('%Y年%-m月%-d日 %H:%M') %></td>
+        <td class="show_button">[<%= link_to I18n.t('views.button.show'), task_path(task.id) %>]</td>
+        <td class="edit_button">[<%= link_to I18n.t('views.button.edit'), edit_task_path(task.id) %>]</td>
+        <td class="delete_button">[<%= link_to I18n.t('views.button.delete'), task_path(task.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>]</td>
       </tr>
     <% end %>
   </table>
