@@ -11,24 +11,24 @@
     </div>
   <% end %>
   <div class="task_title">
-    <%= f.label :task_name, 'タスク名' %>
+    <%= f.label :task_name %>
     <%= f.text_field :task_name %>
   </div>
   <div class="task_detail">
-    <%= f.label :task_detail, 'タスクの詳細' %>
+    <%= f.label :task_detail %>
     <%= f.text_area :task_detail %>
   </div>
   <div class="task_status">
-    <%= f.label :status, 'ステータス' %>
+    <%= f.label :status %>
     <%= f.select :status, {'未着手': 1, '着手': 2, '完了': 3}, {selected: 1}  %>
   </div>
   <div class="task_priority">
-    <%= f.label :priority, '優先度' %>
+    <%= f.label :priority %>
     <%= f.select :priority, {'高': 1, '中': 2, '低': 3}, {selected: 2} %>
   </div>
   <div class="task_end_date">
-    <%= f.label :end_date, '期限' %>
+    <%= f.label :end_date %>
     <%= f.date_field :end_date %>
   </div>
-  <%= f.submit value:'登録' %>
+  <%= f.submit I18n.t('views.button.submit') %>
 <% end %>

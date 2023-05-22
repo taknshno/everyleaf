@@ -1,7 +1,7 @@
-<h1>Show</h1>
-<p>タスク名: <%= @task.task_name %></p>
-<p>詳細: <%= @task.task_detail %></p>
-<p>ステータス: <%= @task.status %></p>
-<p>優先度: <%= @task.priority %></p>
-<p>期限: <%= @task.end_date %></p>
-<%= link_to "タスク一覧にもどる", tasks_path %>
+<h1><%= I18n.t('views.messages.task_show') %></h1>
+<p><strong><%= I18n.t('views.messages.task_name') %></strong> <%= @task.task_name %></p>
+<p><strong><%= I18n.t('views.messages.task_detail') %></strong> <%= @task.task_detail %></p>
+<p><strong><%= I18n.t('views.messages.status') %></strong> <%= @task.status %></p>
+<p><strong><%= I18n.t('views.messages.priority') %></strong> <%= @task.priority %></p>
+<p><strong><%= I18n.t('views.messages.end_date') %></strong> <%= @task.end_date %></p>
+<%= link_to I18n.t('views.messages.task_list'), tasks_path %>
