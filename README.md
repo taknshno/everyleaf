@@ -19,8 +19,9 @@
 | id          | Integer   |
 | user_id     | Integer   |
 | task_name   | String    |
-| status      | String    |
-| priority    | String    |
+| task_detail | Text      |
+| status      | Integer   |
+| priority    | Integer   |
 | end_date    | Date      |
 | created_at  | DateTime  |
 | updated_at  | DateTime  |

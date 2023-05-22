@@ -1,6 +1,7 @@
 <h1>Show</h1>
-<p>タイトル: <%= @task.task_name %></p>
-<p>内容: <%= @task.status %></p>
-<p>タイトル: <%= @task.priority %></p>
-<p>内容: <%= @task.end_date %></p>
+<p>タスク名: <%= @task.task_name %></p>
+<p>詳細: <%= @task.task_detail %></p>
+<p>ステータス: <%= @task.status %></p>
+<p>優先度: <%= @task.priority %></p>
+<p>期限: <%= @task.end_date %></p>
 <%= link_to "タスク一覧にもどる", tasks_path %>

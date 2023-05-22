@@ -14,6 +14,10 @@
     <%= f.label :task_name, 'タスク名' %>
     <%= f.text_field :task_name %>
   </div>
+  <div class="task_detail">
+    <%= f.label :task_detail, 'タスクの詳細' %>
+    <%= f.text_area :task_detail %>
+  </div>
   <div class="task_status">
     <%= f.label :status, 'ステータス' %>
     <%= f.select :status, {'未着手': 1, '着手': 2, '完了': 3}, {selected: 1}  %>

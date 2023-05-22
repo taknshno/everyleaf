@@ -5,13 +5,14 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'タスクを新規作成した場合' do
       it '作成したタスクが表示される' do
         visit new_task_path
-        fill_in 'タスク名', with: 'test'
+        fill_in 'タスク名', with: 'test_name'
+        fill_in 'タスクの詳細', with: 'test_detail'
         select '着手', from: 'ステータス'
         select '低', from: '優先度'
         fill_in '期限', with: '002023-05-22'
         click_button '登録'
         click_link '詳細'
-        expect(page).to have_content 'test'
+        expect(page).to have_content 'test_name'
       end
     end
   end
@@ -19,8 +20,9 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '一覧画面に遷移した場合' do
       it '作成済みのタスク一覧が表示される' do
         task = FactoryBot.create(:task, task_name: 'test')
+        sleep 2;
         visit tasks_path
-        #sleep 500
+        sleep 2;
         expect(page).to have_content 'test'
       end
     end
@@ -29,8 +31,11 @@ RSpec.describe 'タスク管理機能', type: :system do
      context '任意のタスク詳細画面に遷移した場合' do
        it '該当タスクの内容が表示される' do
         task = FactoryBot.create(:task, task_name: 'test')
+        sleep 2;
         visit tasks_path
+        sleep 2;
         click_link '詳細'
+        sleep 2;
         expect(page).to have_content 'test'
        end
      end
