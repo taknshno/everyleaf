@@ -1,24 +1,45 @@
-# README
+## Model
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### User
 
-Things you may want to cover:
+| Field           | Type      |
+|-----------------|-----------|
+| id              | Integer   |
+| user_name       | String    |
+| email           | String    |
+| password_digest | String    |
+| created_at      | DataTime  |
+| updated_at      | DataTime  |
 
-* Ruby version
 
-* System dependencies
+#### Task
 
-* Configuration
+| Field       | Type      |
+|-------------|-----------|
+| id          | Integer   |
+| user_id     | Integer   |
+| task_name   | String    |
+| status      | String    |
+| priority    | String    |
+| end_date    | Date      |
+| created_at  | DateTime  |
+| updated_at  | DateTime  |
 
-* Database creation
+#### Label
 
-* Database initialization
+| Field       | Type      |
+|-------------|-----------|
+| id          | Integer   |
+| label_name  | String    |
+| created_at  | DataTime  |
+| updated_at  | DataTime  |
 
-* How to run the test suite
+#### Task_Label
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Field       | Type      |
+|-------------|-----------|
+| id          | Integer   |
+| task_id     | Integer   |
+| label_id    | Integer   |
+| created_at  | DataTime  |
+| updated_at  | DataTime  |
