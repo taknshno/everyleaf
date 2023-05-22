@@ -1,0 +1,28 @@
+<h1>Index</h1>
+<p><%= notice %></p>
+<div>
+  <%= link_to 'new', new_task_path %>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>task_name</th>
+      <th>task_detail</th>
+      <th>status</th>
+      <th>priority</th>
+      <th>end_date</th>
+    </tr>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.task_name %></td>
+        <td><%= task.task_detail %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.end_date %></td>
+        <td>[<%= link_to '詳細', task_path(task.id) %>]</td>
+        <td>[<%= link_to '編集', edit_task_path(task.id) %>]</td>
+        <td>[<%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>]</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
