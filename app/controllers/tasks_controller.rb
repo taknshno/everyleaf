@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(created_at: "DESC")
   end
 
   def new
@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(task_params)
     if @task.save
-      redirect_to tasks_path, notice: "登録しました"
+      redirect_to tasks_path, notice: I18n.t('views.messages.created_task')
     else
       render 'new'
     end
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "編集しました"
+      redirect_to tasks_path, notice: I18n.t('views.messages.updated_task')
     else
       render 'edit'
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: "削除しました"
+    redirect_to tasks_path, notice: I18n.t('views.messages.deleted_task')
   end
 
   private

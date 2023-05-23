@@ -1,3 +1,3 @@
-<h1>New</h1>
+<h1><%= I18n.t('views.messages.create_task') %></h1>
 <%= render 'form' %>
-<%= link_to "タスク一覧にもどる", tasks_path %>
+<%= link_to I18n.t('views.messages.task_list'), tasks_path %>
