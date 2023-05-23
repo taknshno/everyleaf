@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     when "priority"
       @tasks = Task.all.order(priority: "ASC")
     when "end_date"
-      @tasks = Task.all.order(end_date: "ASC")
+      @tasks = Task.all.order(end_date: "DESC")
     else
       @tasks = Task.all.order(created_at: "DESC")
     end
