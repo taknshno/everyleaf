@@ -20,11 +20,11 @@
   </div>
   <div class="task_status">
     <%= f.label :status %>
-    <%= f.select :status, {'未着手': 1, '着手': 2, '完了': 3}, {selected: 1}  %>
+    <%= f.select :status, {'未着手': '未着手', '着手': '着手', '完了': '完了'}, {selected: '未着手'}  %>
   </div>
   <div class="task_priority">
     <%= f.label :priority %>
-    <%= f.select :priority, {'高': 1, '中': 2, '低': 3}, {selected: 2} %>
+    <%= f.select :priority, {'高': '高', '中': '中', '低': '低'}, {selected: '中'} %>
   </div>
   <div class="task_end_date">
     <%= f.label :end_date %>
