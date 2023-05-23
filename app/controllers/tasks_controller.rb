@@ -13,8 +13,15 @@ class TasksController < ApplicationController
   end
 
   def search
-    @tasks = Task.search(params[:keyword])
-    @keyword = params[:keyword]
+    key_word = params[:key_word]
+    key_status = params[:key_status]
+
+    if key_word.empty? && key_status.empty?
+      @tasks = Task.all.order(created_at: "DESC")
+    else
+      @tasks = Task.search(params[:key_word], params[:key_status])
+    end
+
     render "index"
   end
 
