@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     else
       @tasks = Task.all.order(created_at: "DESC")
     end
+    @tasks = @tasks.page(params[:page])
   end
 
   def search
@@ -22,6 +23,7 @@ class TasksController < ApplicationController
       @tasks = Task.search(params[:key_word], params[:key_status])
     end
 
+    @tasks = @tasks.page(params[:page])
     render "index"
   end
 
