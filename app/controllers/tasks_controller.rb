@@ -12,6 +12,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def search
+    @tasks = Task.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
+
   def new
     @task = Task.new
   end

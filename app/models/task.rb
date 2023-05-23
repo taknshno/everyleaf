@@ -6,4 +6,8 @@ class Task < ApplicationRecord
 
   enum status: { 未着手: 1, 着手: 2, 完了: 3 }
   enum priority: { 高: 1, 中: 2, 低: 3 }
+
+  def self.search(keyword)
+    where("task_name LIKE ?", "%#{keyword}%")
+  end
 end

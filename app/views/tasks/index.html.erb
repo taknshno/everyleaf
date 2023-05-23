@@ -10,6 +10,14 @@
   <%= link_to I18n.t('views.messages.sort_by_end_date'), tasks_path(sort_by: "end_date") %>
 </div>
 <hr>
+<div class="extract_nav">
+  <%= form_with url: search_tasks_path, method: :get, local: true do |f| %>
+    <%= I18n.t('views.messages.task_name') %>:
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit I18n.t('views.button.search') %>
+  <% end %>
+</div>
+<hr>
 <div class="task_list">
   <table>
     <tr>

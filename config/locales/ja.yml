@@ -219,6 +219,7 @@ ja:
       sort_by_end_date: "終了期限でソート"
     button:
       submit: '登録'
+      search: '検索'
       show: '詳細'
       edit: '編集'
       delete: '削除'
