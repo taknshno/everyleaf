@@ -1,8 +1,15 @@
 <h1><%= I18n.t('views.messages.task_list') %></h1>
 <p><%= notice %></p>
+<hr>
 <div>
-  <p><%= link_to I18n.t('views.messages.create_task'), new_task_path %></p>
+  <%= link_to I18n.t('views.messages.create_task'), new_task_path %>
 </div>
+<hr>
+<div class="sort_nav">
+  <%= link_to I18n.t('views.messages.sort_by_priority'), tasks_path(sort_by: "priority") %>
+  <%= link_to I18n.t('views.messages.sort_by_end_date'), tasks_path(sort_by: "end_date") %>
+</div>
+<hr>
 <div class="task_list">
   <table>
     <tr>

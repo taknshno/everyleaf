@@ -2,7 +2,14 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all.order(created_at: "DESC")
+    case params[:sort_by]
+    when "priority"
+      @tasks = Task.all.order(priority: "ASC")
+    when "end_date"
+      @tasks = Task.all.order(end_date: "ASC")
+    else
+      @tasks = Task.all.order(created_at: "DESC")
+    end
   end
 
   def new

@@ -11,7 +11,7 @@ ja:
         task_detail: タスクの詳細
         status: ステータス
         priority: 優先度
-        end_date: 期限
+        end_date: 終了期限
       user:
         user_name: 名前
         email: メールアドレス
@@ -205,7 +205,7 @@ ja:
       task_detail: タスクの詳細
       status: ステータス
       priority: 優先度
-      end_date: 期限
+      end_date: 終了期限
       created_at: 作成日時
       updated_at: 更新日時
       create_task: "タスクの新規作成"
@@ -215,6 +215,8 @@ ja:
       deleted_task: "タスクを削除しました"
       task_list: "タスク一覧"
       task_show: "タスクの詳細"
+      sort_by_priority: "優先度でソート"
+      sort_by_end_date: "終了期限でソート"
     button:
       submit: '登録'
       show: '詳細'
