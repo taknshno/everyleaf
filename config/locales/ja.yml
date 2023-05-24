@@ -201,6 +201,7 @@ ja:
     pm: 午後
   views:
     messages:
+      user_name: ユーザー
       task_name: タスク名
       task_detail: タスクの詳細
       status: ステータス
