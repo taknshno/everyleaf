@@ -1,17 +1,37 @@
 <h1>Sign up</h1>
-
-<%= form_with(model: @user, local: true) do |f| %>  
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create my account" %>
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading"><%= @user.errors.count %>件のエラーがあります。</h4>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+<div>
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div>
+      <div>
+        <%= f.label :user_name %>
+        <%= f.text_field :user_name %>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div>
+        <%= f.submit "Create my account" %>
+      </div>
+    </div>
+  <% end %>
+</div>
