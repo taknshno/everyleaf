@@ -218,6 +218,14 @@ ja:
       task_show: "タスクの詳細"
       sort_by_priority: "優先度順"
       sort_by_end_date: "終了期限順"
+      input_error: "入力に誤りがあります"
+      updated_user: "ユーザー情報を更新しました"
+      update_task_failed: "ユーザー情報の更新に失敗しました"
+      delete_user: "アカウント削除"
+      created_user: "アカウントを作成しました"
+      deleted_user: "アカウントを削除しました"
+      login_failed: "ログインに失敗しました"
+      not_have_access: "アクセス権限がありません"
     button:
       submit: '登録'
       search: '検索'

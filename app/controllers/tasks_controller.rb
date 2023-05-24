@@ -17,8 +17,7 @@ class TasksController < ApplicationController
   end
 
   def search
-    @tasks = current_user.all
-
+    @tasks = current_user.tasks
     key_word = params[:key_word]
     key_status = params[:key_status]
 
@@ -32,7 +31,6 @@ class TasksController < ApplicationController
     end
 
     @tasks = @tasks.page(params[:page])
-
     render "index"
   end
 
@@ -43,7 +41,8 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path, notice: I18n.t('views.messages.created_task')
+      flash[:success] = I18n.t('views.messages.created_task')
+      redirect_to tasks_path
     else
       render 'new'
     end
@@ -55,7 +54,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: I18n.t('views.messages.updated_task')
+      flash[:success] = I18n.t('views.messages.updated_task')
+      redirect_to tasks_path
     else
       render 'edit'
     end
@@ -63,7 +63,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: I18n.t('views.messages.deleted_task')
+    flash[:success] = I18n.t('views.messages.deleted_task')
+    redirect_to tasks_path
   end
 
   private
@@ -73,7 +74,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-     @task = Task.find(params[:id])
-   end
-
+    @task = Task.find(params[:id])
+  end
 end

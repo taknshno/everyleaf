@@ -8,3 +8,9 @@ import '../stylesheets/application';
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(function () {
+  setTimeout(function () {
+    $(".alert").hide();
+  }, 3000);
+});
