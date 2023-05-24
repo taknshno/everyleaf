@@ -1,22 +1,51 @@
+<div class="title_area">
 <h1><%= I18n.t('views.messages.task_list') %></h1>
 <p><%= notice %></p>
-<div>
-  <p><%= link_to I18n.t('views.messages.create_task'), new_task_path %></p>
 </div>
-<div class="task_list">
+<div class="nav">
+    <%= link_to I18n.t('views.messages.create_task'), new_task_path, class: "btn btn-secondary"  %>
+</div>
+<div class="sort_bar">
+  <h5>
+    タスクを並び替える
+  </h5>
+  <div class="row justify-content-center p-2">
+    <div class="col-auto">
+      <%= link_to I18n.t('views.messages.sort_by_priority'), tasks_path(sort_by: "priority"), class:"btn btn-light" %>
+    </div>
+    <div class="col-auto">
+      <%= link_to I18n.t('views.messages.sort_by_end_date'), tasks_path(sort_by: "end_date"), class:"btn btn-light"  %>
+    </div>
+  </div>
+</div>
+<div class="extract_bar">
+  <h5>
+    タスクを絞り込む
+  </h5>
+  <%= form_with url: search_tasks_path, method: :get, class: "row justify-content-center p-2", local: true do |f| %>
+  <div class="col-auto">
+      <%= f.text_field :key_word, value: @key_word, placeholder: "タスク名を入力する", class: "form-control" %>
+  </div>
+  <div class="col-auto">
+      <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control"  %>
+  </div>
+  <div class="col-auto">
+      <%= f.submit I18n.t('views.button.search'), class:"form-control" %>
+  </div>
+  <% end %>
+</div>
+<div class="task_area">
   <table>
     <tr>
       <th><%= I18n.t('views.messages.task_name') %></th>
-      <th><%= I18n.t('views.messages.task_detail') %></th>
       <th><%= I18n.t('views.messages.status') %></th>
       <th><%= I18n.t('views.messages.priority') %></th>
       <th><%= I18n.t('views.messages.end_date') %></th>
       <th><%= I18n.t('views.messages.created_at') %></th>
     </tr>
     <% @tasks.each do |task| %>
-      <tr>
-        <td class="task_name"><%= task.task_name %></td>
-        <td class="task_detail"><%= task.task_detail %></td>
+      <tr class="task_record">
+        <td class="task_name col-3 col-ms-3 col-md-4 col-lg-4"><%= task.task_name %></td>
         <td class="status"><%= task.status %></td>
         <td class="piroirity"><%= task.priority %></td>
         <td class="end_date"><%= task.end_date %></td>
@@ -27,4 +56,5 @@
       </tr>
     <% end %>
   </table>
+  <%= paginate @tasks %>
 </div>

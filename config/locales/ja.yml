@@ -11,7 +11,7 @@ ja:
         task_detail: タスクの詳細
         status: ステータス
         priority: 優先度
-        end_date: 期限
+        end_date: 終了期限
       user:
         user_name: 名前
         email: メールアドレス
@@ -113,8 +113,8 @@ ja:
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       in: は%{count}の範囲に含めてください
-      inclusion: は一覧にありません
-      invalid: は不正な値です
+      inclusion: が不正な値です
+      invalid: が不正な値です
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -205,7 +205,7 @@ ja:
       task_detail: タスクの詳細
       status: ステータス
       priority: 優先度
-      end_date: 期限
+      end_date: 終了期限
       created_at: 作成日時
       updated_at: 更新日時
       create_task: "タスクの新規作成"
@@ -215,8 +215,17 @@ ja:
       deleted_task: "タスクを削除しました"
       task_list: "タスク一覧"
       task_show: "タスクの詳細"
+      sort_by_priority: "優先度順"
+      sort_by_end_date: "終了期限順"
     button:
       submit: '登録'
+      search: '検索'
       show: '詳細'
       edit: '編集'
       delete: '削除'
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
