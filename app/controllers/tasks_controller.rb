@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
 
     case params[:sort_by]
     when "priority"
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   end
 
   def search
-    @tasks = Task.all
+    @tasks = current_user.all
 
     key_word = params[:key_word]
     key_status = params[:key_status]

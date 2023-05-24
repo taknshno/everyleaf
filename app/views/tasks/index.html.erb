@@ -2,37 +2,36 @@
   <h1><%= I18n.t('views.messages.task_list') %></h1>
   <p><%= notice %></p>
 </div>
-<div class="nav">
-  <%= link_to I18n.t('views.messages.create_task'), new_task_path, class: "btn btn-secondary"  %>
-</div>
-<div class="sort_bar">
-  <h5>
-    タスクを並び替える
-  </h5>
-  <div class="row justify-content-center p-2">
-    <div class="col-auto">
-      <%= link_to I18n.t('views.messages.sort_by_priority'), tasks_path(sort_by: "priority"), class:"btn btn-light" %>
-    </div>
-    <div class="col-auto">
-      <%= link_to I18n.t('views.messages.sort_by_end_date'), tasks_path(sort_by: "end_date"), class:"btn btn-light"  %>
+<div class="sort_search_area justify-content-center">
+  <div class="sort_bar col-4">
+    <h5>
+      タスクを並び替える
+    </h5>
+    <div class="row justify-content-center p-2">
+      <div class="col-auto">
+        <%= link_to I18n.t('views.messages.sort_by_priority'), tasks_path(sort_by: "priority"), class:"btn btn-light btn-sm" %>
+      </div>
+      <div class="col-auto">
+        <%= link_to I18n.t('views.messages.sort_by_end_date'), tasks_path(sort_by: "end_date"), class:"btn btn-light btn-sm"  %>
+      </div>
     </div>
   </div>
-</div>
-<div class="extract_bar">
-  <h5>
-    タスクを絞り込む
-  </h5>
-  <%= form_with url: search_tasks_path, method: :get, class: "row justify-content-center p-2", local: true do |f| %>
-    <div class="col-auto">
-      <%= f.text_field :key_word, value: @key_word, placeholder: "タスク名を入力する", class: "form-control" %>
-    </div>
-    <div class="col-auto">
-      <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control"  %>
-    </div>
-    <div class="col-auto">
-      <%= f.submit I18n.t('views.button.search'), class:"form-control" %>
-    </div>
-  <% end %>
+  <div class="extract_bar col-8">
+    <h5>
+      タスクを絞り込む
+    </h5>
+    <%= form_with url: search_tasks_path, method: :get, class: "row justify-content-center p-2", local: true do |f| %>
+      <div class="col-auto">
+        <%= f.text_field :key_word, value: @key_word, placeholder: "タスク名を入力する", class: "form-control form-control-sm" %>
+      </div>
+      <div class="col-auto">
+        <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control form-control-sm"  %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit I18n.t('views.button.search'), class:"form-control form-control-sm" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="task_area">
   <table>
@@ -46,7 +45,7 @@
     </tr>
     <% @tasks.each do |task| %>
       <tr class="task_record">
-        <td class="task_user_name"><%= task.user.user_name %></td>
+        <td class="user_name"><%= task.user.user_name %></td>
         <td class="task_name"><%= task.task_name %></td>
         <td class="status"><%= task.status %></td>
         <td class="piroirity"><%= task.priority %></td>

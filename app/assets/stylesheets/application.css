@@ -7,6 +7,50 @@
   width: 100%;
  }
 
+ .alert-wrapper {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 350px;
+  z-index: 1;
+}
+
+.alert {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  height: 50px;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 3px 0px rgba(0, 0, 0, 0.05);
+  background-color: #cccccf;
+  position: relative;
+}
+
+.header a {
+  color: #0c0000 !important;
+}
+
+.top_menu {
+  float: right;
+}
+
+.top_menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.top_menu li {
+  padding: 15px 12px;
+  float: left;
+  width: auto;
+  list-style: none;
+}
+
 .title_area {
   margin-top: 20px;
 }
@@ -14,40 +58,32 @@
 .title_area h1 {
   font-family: 'IBM Plex Sans JP', sans-serif;
   font-size: 3rem;
-  margin-bottom: 2rem;
   text-align: center;
 }
 
-.nav {
-  border-radius: 8px;
-  margin: 4px auto;
-  padding: 4px;
-  text-align: center;
-  max-width: 600px;
-}
-
-.nav .btn {
+.sort_search_area {
+  max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .sort_bar {
   color: #FFF;
   background-color:teal;
   border-radius: 8px;
-  margin: 10px auto;
+  margin: 10px 4px;
   padding: 8px;
   text-align: center;
-  max-width: 600px;
 }
 
 .extract_bar {
   color: #FFF;
   background-color: royalblue;
   border-radius: 8px;
-  margin: 10px auto;
+  margin: 10px 4px;
   padding: 8px;
   text-align: center;
-  max-width: 600px;
 }
 
 .task_area table {
