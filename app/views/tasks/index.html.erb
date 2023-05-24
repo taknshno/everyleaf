@@ -27,7 +27,7 @@
       <%= f.text_field :key_word, value: @key_word, placeholder: "タスク名を入力する", class: "form-control" %>
   </div>
   <div class="col-auto">
-      <%= f.select :key_status, {'ステータスを選ぶ': '', '未着手': 1, '着手': 2, '完了': 3}, {selected: ''}, value: @key_status, class: "form-control"  %>
+      <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control"  %>
   </div>
   <div class="col-auto">
       <%= f.submit I18n.t('views.button.search'), class:"form-control" %>

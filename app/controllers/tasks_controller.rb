@@ -2,28 +2,37 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
+    @tasks = Task.all
+
     case params[:sort_by]
     when "priority"
-      @tasks = Task.all.order(priority: "ASC")
+      @tasks = @tasks.priority_asc
     when "end_date"
-      @tasks = Task.all.order(end_date: "DESC")
+      @tasks = @tasks.end_date_desc
     else
-      @tasks = Task.all.order(created_at: "DESC")
+      @tasks = @tasks.default_desc
     end
+
     @tasks = @tasks.page(params[:page])
   end
 
   def search
+    @tasks = Task.all
+
     key_word = params[:key_word]
     key_status = params[:key_status]
 
-    if key_word.empty? && key_status.empty?
-      @tasks = Task.all.order(created_at: "DESC")
-    else
-      @tasks = Task.search(params[:key_word], params[:key_status])
+    if key_word.present? && key_status.present?
+      @tasks = @tasks.word_search(key_word)
+      @tasks = @tasks.status_search(key_status)
+    elsif key_word.present? && !key_status.present?
+      @tasks = @tasks.word_search(key_word)
+    elsif !key_word.present? && key_status.present?
+      @tasks = @tasks.status_search(key_status)
     end
 
     @tasks = @tasks.page(params[:page])
+
     render "index"
   end
 
