@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  belongs_to :user
+
   enum status: { 未着手: 1, 着手: 2, 完了: 3 }
   enum priority: { 高: 1, 中: 2, 低: 3 }
 
