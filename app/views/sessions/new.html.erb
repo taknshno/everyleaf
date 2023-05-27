@@ -1,17 +1,11 @@
 <div class="title_area">
   <h1>ログイン</h1>
 </div>
-<div class="login_input_area shadow-lg p-3 my-5 bg-white rounded w-75">
+<div class="form_input_area shadow-lg p-3 my-5 bg-white rounded w-75">
   <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
     <div>
       <div>
-        <%= f.label :email %>
-      </div>
-      <div>
         <%= f.email_field :email, placeholder:"メールアドレスを入力", class:"form-control form-control-lg mb-3" %>
-      </div>
-      <div>
-      <%= f.label :password %>
       </div>
       <div>
       <%= f.password_field :password, placeholder:"パスワードを入力", class:"form-control form-control-lg mb-3" %>

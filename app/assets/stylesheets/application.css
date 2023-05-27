@@ -18,6 +18,9 @@
 
  .error_msg {
   margin: 0 auto;
+ }
+
+ .error_msg h4 {
   text-align: center;
  }
 
@@ -77,10 +80,6 @@
   list-style: none;
 }
 
-.login_input_area {
-  margin: 0 auto;
-}
-
 .title_area {
   margin-top: 20px;
 }
@@ -129,6 +128,7 @@
   font-size: 0.8rem;
   text-align: center;
   padding: 8px;
+  border-top: 1px solid #0c0000;
   border-bottom: 1px solid #0c0000;
 }
 
@@ -306,7 +306,6 @@
 .form_input_area {
   padding-top: 20px;
   margin: 0 auto;
-  width: 75%;
 }
 
 .form_input_area label {

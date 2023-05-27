@@ -26,14 +26,14 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "sample@example.com"
       fill_in "Password", with: "sample_pass"
-      click_button "Log in"
+      click_button "ログインする"
       expect(page).to have_content "タスク一覧"
     end
     it "自分の詳細画面(マイページ)に飛べること" do
       visit new_session_path
       fill_in "Email", with: "sample@example.com"
       fill_in "Password", with: "sample_pass"
-      click_button "Log in"
+      click_button "ログインする"
       find(".close").click
       click_link "プロフィール"
       expect(current_path).to eq user_path(id: 10)
@@ -42,7 +42,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "sample@example.com"
       fill_in "Password", with: "sample_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit user_path(id: 20)
       find(".close").click
       expect(page).to have_content "タスク一覧"
@@ -52,7 +52,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "sample@example.com"
       fill_in "Password", with: "sample_pass"
-      click_button "Log in"
+      click_button "ログインする"
       find(".close").click
       click_link "ログアウト"
       expect(current_path).to eq new_session_path
@@ -67,7 +67,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "admin@example.com"
       fill_in "Password", with: "admin_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit admin_users_path
       expect(page).to have_content "管理画面"
     end
@@ -75,7 +75,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "sample@example.com"
       fill_in "Password", with: "sample_pass"
-      click_button "Log in"
+      click_button "ログインする"
       find(".close").click
       visit admin_users_path
       find(".close").click
@@ -85,7 +85,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "admin@example.com"
       fill_in "Password", with: "admin_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit admin_users_path
       click_link "管理権限でユーザー作成"
       fill_in "名前", with: "test_name"
@@ -100,7 +100,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "admin@example.com"
       fill_in "Password", with: "admin_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit admin_users_path
       find("#show_10").click
       expect(page).to have_content "sample@example.com"
@@ -109,7 +109,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "admin@example.com"
       fill_in "Password", with: "admin_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit admin_users_path
       find("#edit_10").click
       fill_in "名前", with: "edit_name"
@@ -124,7 +124,7 @@ RSpec.describe "ユーザ管理機能", type: :system do
       visit new_session_path
       fill_in "Email", with: "admin@example.com"
       fill_in "Password", with: "admin_pass"
-      click_button "Log in"
+      click_button "ログインする"
       visit admin_users_path
       expect(page).to have_content "sample@example.com"
       find("#delete_10").click
