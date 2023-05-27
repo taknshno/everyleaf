@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     when "end_date"
       @tasks = @tasks.end_date_desc
     else
-      @tasks = @tasks.default_desc
+      @tasks = @tasks.default_order
     end
 
     @tasks = @tasks.page(params[:page])

@@ -1,7 +1,35 @@
-<h1><%= I18n.t('views.messages.task_show') %></h1>
-<p><strong><%= I18n.t('views.messages.task_name') %></strong> <%= @task.task_name %></p>
-<p><strong><%= I18n.t('views.messages.task_detail') %></strong> <%= @task.task_detail %></p>
-<p><strong><%= I18n.t('views.messages.status') %></strong> <%= @task.status %></p>
-<p><strong><%= I18n.t('views.messages.priority') %></strong> <%= @task.priority %></p>
-<p><strong><%= I18n.t('views.messages.end_date') %></strong> <%= @task.end_date %></p>
-<%= link_to I18n.t('views.messages.task_list'), tasks_path %>
+<div class="title_area">
+  <h1><%= I18n.t('views.messages.task_show') %></h1>
+</div>
+<div class="row">
+  <div class="col-12">
+    <strong><%= I18n.t('views.messages.task_name') %></strong>
+  </div>
+  <div class="col-12">
+    <%= @task.task_name %>
+  </div>
+  <div class="col-6">
+    <strong><%= I18n.t('views.messages.task_detail') %></strong>
+  </div>
+  <div class="col-6">
+    <%= @task.task_detail %>
+  </div>
+  <div>
+    <strong><%= I18n.t('views.messages.status') %></strong>
+  </div>
+  <div>
+    <%= @task.status %>
+  </div>
+  <div>
+    <strong><%= I18n.t('views.messages.priority') %></strong>
+  </div>
+  <div>
+    <%= @task.priority %>
+  </div>
+  <div>
+    <strong><%= I18n.t('views.messages.end_date') %></strong>
+  </div>
+  <div>
+    <%= @task.end_date %>
+  </div>
+</div>

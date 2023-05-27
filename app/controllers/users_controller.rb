@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: %i[show edit update]
 
   def new
@@ -15,12 +15,13 @@ class UsersController < ApplicationController
       flash[:success] = I18n.t('views.messages.created_user')
       redirect_to :root
     else
-      flash[:danger] = I18n.t('views.messages.input')
+      flash[:danger] = I18n.t('views.messages.input_error')
       render :new
     end
   end
 
   def show
+    @tasks = @user.tasks.page(params[:page])
   end
 
   def edit
@@ -28,17 +29,18 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = I18n.t('views.messages.updated_task')
+      flash[:success] = I18n.t('views.messages.updated_user')
       redirect_to user_path
     else
-      flash[:danger] = I18n.t('views.messages.update_task_failed')
+      flash[:danger] = I18n.t('views.messages.update_user_failed')
       render :edit
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to :root, notice: I18n.t('views.messages.deleted_user')
+    flash[:danger] = I18n.t('views.messages.deleted_user')
+    redirect_to :root
   end
 
   private
@@ -49,7 +51,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:user_name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :admin)
   end
 
   def user_check

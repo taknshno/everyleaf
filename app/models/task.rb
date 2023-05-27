@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   validates :task_name,  presence: true, length: { maximum: 60 }
   validates :task_detail,  presence: true, length: { maximum: 256 }
 
-  scope :default_desc, -> { order("tasks.created_at DESC") }
+  scope :default_order, -> { order("tasks.created_at DESC") }
   scope :priority_asc, -> { order("tasks.priority ASC") }
   scope :end_date_desc, -> { order("tasks.end_date DESC") }
 

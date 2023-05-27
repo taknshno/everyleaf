@@ -1,4 +1,6 @@
-<h1>Sign up</h1>
+<div class="title_area">
+<h1>ユーザー登録</h1>
+</div>
 <% if @user.errors.any? %>
   <div class="alert alert-danger" role="alert">
     <a class="close" data-dismiss="alert" href="#">×</a>
@@ -28,6 +30,10 @@
       <div>
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
+      </div>
+      <div>
+        <%= f.label :admin %>
+        <%= f.check_box :admin, {checked: true}, "あり" %>
       </div>
       <div>
         <%= f.submit "Create my account" %>

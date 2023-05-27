@@ -9,7 +9,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(function () {
+$(document).on ("turbolinks:load", function(){
   setTimeout(function () {
     $(".alert").hide();
   }, 3000);
