@@ -88,8 +88,6 @@ class Admin::UsersController < ApplicationController
 
   def admin_only
     unless current_user.admin == "あり"
-      puts
-      puts current_user.admin
       flash[:danger] = I18n.t('views.messages.not_have_access_to_admin')
       redirect_to :root
     end
