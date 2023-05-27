@@ -225,6 +225,7 @@ ja:
       delete_user: "アカウント削除"
       created_user: "アカウントを作成しました"
       deleted_user: "アカウントを削除しました"
+      delete_user_failed: "アカウントの削除に失敗しました"
       login_failed: "ログインに失敗しました"
       not_have_access: "アクセス権限がありません"
       not_have_access_to_admin: "管理画面へのアクセス権限がありません"
@@ -232,6 +233,8 @@ ja:
       admin_page: "管理画面"
       grant_admin: "管理者権限を付与しました"
       ensure_admin: "管理者権限を抹消しました"
+      already_admin: "すでに管理者権限があります"
+      already_not_admin: "すでに管理者権限はありません"
       change_admin_failed: "管理者権限の変更に失敗しました"
     button:
       submit: '登録'

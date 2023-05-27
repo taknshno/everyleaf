@@ -17,6 +17,12 @@
         <div class="input-group">
           <%= f.password_field :password_confirmation, placeholder:"パスワード(再確認)", class:"form-control mb-3", required: true %>
         </div>
+        <div class="checkbox mb-3">
+          <label>
+            <%= f.check_box :admin, {id:"flexCheckDefault"}, "あり", "なし" %>
+            <%= f.label :admin, for: "flexCheckDefault", class:"form-check-label ml-1" %>
+          </label>
+        </div>
       </div>
       <div class="button-wrapper">
         <%= link_to "戻る", user_path, class: "btn btn-secondary btn-lg w-25 mr-3" %>

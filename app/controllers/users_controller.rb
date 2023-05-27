@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       flash[:success] = I18n.t('views.messages.created_user')
       redirect_to :root
     else
-      flash[:danger] = I18n.t('views.messages.input_error')
       render :new
     end
   end

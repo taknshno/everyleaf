@@ -18,17 +18,17 @@
           <%= f.password_field :password_confirmation, placeholder:"パスワード(再確認)", class:"form-control", required: true %>
         </div>
         <div class="checkbox mb-3">
-        <label>
-          <%= f.check_box :admin, {id:"flexCheckDefault"}, "あり", "なし" %>
-          <%= f.label :admin, for: "flexCheckDefault", class:"form-check-label ml-1" %>
-        </label>
+          <label>
+            <%= f.check_box :admin, {id:"flexCheckDefault"}, "あり", "なし" %>
+            <%= f.label :admin, for: "flexCheckDefault", class:"form-check-label ml-1" %>
+          </label>
+        </div>
       </div>
-      </div>
-      <div class="button-wrapper">
-        <%= link_to "戻る", admin_users_path, class: "btn btn-secondary btn-lg w-25 mr-3" %>
-        <%= f.submit "編集する", class:"btn btn-primary btn-lg w-50" %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="button-wrapper">
+      <%= link_to "戻る", admin_users_path, class: "btn btn-secondary btn-lg w-25 mr-3" %>
+      <%= f.submit "編集する", class:"btn btn-primary btn-lg w-50" %>
+    </div>
+  <% end %>
 </div>
-
+</div>

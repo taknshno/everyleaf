@@ -42,22 +42,31 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    flash[:success] = I18n.t('views.messages.deleted_user')
-    redirect_to admin_users_path
+    if @user.destroy
+      flash[:success] = I18n.t('views.messages.deleted_user')
+      redirect_to admin_users_path
+    else
+      flash[:danger] = I18n.t('views.messages.delete_user_failed')
+      redirect_to admin_users_path
+    end
   end
 
   def control
     case params[:act]
     when "grant"
-      if @user.update_attribute(:admin, "あり")
+      if @user[:admin] == "あり"
+        flash[:danger] = I18n.t('views.messages.already_admin')
+      elsif @user.update_attribute(:admin, "あり")
         flash[:success] = I18n.t('views.messages.grant_admin')
       else
         flash[:danger] = I18n.t('views.messages.change_admin_failed')
       end
       redirect_to admin_users_path
     when "ensure"
-      if @user.update_attribute(:admin, "なし")
+      if @user[:admin] == "なし"
+        flash[:danger] = I18n.t('views.messages.already_not_admin')
+        redirect_to admin_users_path
+      elsif @user.update_attribute(:admin, "なし")
         after_ensure
       else
         redirect_to admin_users_path
