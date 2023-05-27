@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :control]
 
   def index
-    @users = User.all.default_order
+    @users = User.all.default_order.page(params[:page])
   end
 
   def show
