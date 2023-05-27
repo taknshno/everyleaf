@@ -12,13 +12,17 @@ ja:
         status: ステータス
         priority: 優先度
         end_date: 終了期限
+        created_at: 作成日
+        updated_at: 更新日
       user:
-        user_name: 名前
+        user_name: ユーザ名
         email: メールアドレス
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
         admin: 管理者権限
+        created_at: 登録日
+        updated_at: 更新日
         remember_me: ログインを記憶
     errors:
       messages:
@@ -244,6 +248,7 @@ ja:
       show: '詳細'
       edit: '編集'
       delete: '削除'
+      logged_in: 'ログインする'
       user_delete: 'アカウント削除'
     pagination:
       first: "&laquo; 最初"

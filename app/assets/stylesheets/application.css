@@ -77,6 +77,10 @@
   list-style: none;
 }
 
+.login_input_area {
+  margin: 0 auto;
+}
+
 .title_area {
   margin-top: 20px;
 }
@@ -205,6 +209,62 @@
 .admin_user_record li {
   padding: 0 8px;
   float: left;
+  list-style: none;
+}
+
+.task_show_wrapper {
+  margin: 20px auto 0;
+  padding: 10px;
+  max-width: 900px;
+}
+
+.task_sub_area {
+  border: 1px solid #0c0c0c;
+  padding: 10px;
+}
+
+.task_item_name {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+
+.task_item_value {
+  margin: 4px 0 4px;;
+  padding-left: 10px;
+}
+
+.task_main_area {
+  border: 1px solid #0c0c0c;
+  padding: 10px 20px 15px;
+}
+
+.task_show_name {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.task_show_detail {
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.task_show_control_button {
+  border-top: 1px solid #cccccc;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 20px;
+}
+
+.task_show_control_button ul {
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.task_show_control_button li {
+  float: left;
+  padding: 8px;
   list-style: none;
 }
 

@@ -1,35 +1,79 @@
 <div class="title_area">
   <h1><%= I18n.t('views.messages.task_show') %></h1>
 </div>
-<div class="row">
-  <div class="col-12">
-    <strong><%= I18n.t('views.messages.task_name') %></strong>
+<div class="task_show_wrapper row no-gutters justify-content-center">
+  <div class="task_sub_area shadow-sm bg-white rounded row no-gutters col-12 col-md-4 mb-2">
+    <div class="col-6 col-md-12 px-3">
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.user.user_name') %>
+      </div>
+      <div class="task_item_value">
+        <%= @task.user.user_name %>
+      </div>
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.task.created_at') %>
+      </div>
+      <div class="task_item_value">
+        <%= @task.created_at.strftime('%Y年%-m月%-d日') %>
+      </div>
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.task.updated_at') %>
+      </div>
+      <div class="task_item_value">
+        <%= @task.updated_at.strftime('%Y年%-m月%-d日') %>
+      </div>
+    </div>
+    <div class="col-6 col-md-12 px-3">
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.task.status') %>
+      </div>
+      <div class="task_item_value">
+        <% if @task.status.nil? %>
+          なし
+        <% else %>
+          <%= @task.status %>
+        <% end %>
+      </div>
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.task.priority') %>
+      </div>
+      <div class="task_item_value">
+        <% if @task.priority.nil? %>
+          なし
+        <% else %>
+          <%= @task.priority %>
+        <% end %>
+      </div>
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.attributes.task.end_date') %>
+      </div>
+      <div class="task_item_value">
+        <% if @task.end_date.nil? %>
+          なし
+        <% else %>
+          <%= @task.end_date %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="col-12">
-    <%= @task.task_name %>
-  </div>
-  <div class="col-6">
-    <strong><%= I18n.t('views.messages.task_detail') %></strong>
-  </div>
-  <div class="col-6">
-    <%= @task.task_detail %>
-  </div>
-  <div>
-    <strong><%= I18n.t('views.messages.status') %></strong>
-  </div>
-  <div>
-    <%= @task.status %>
-  </div>
-  <div>
-    <strong><%= I18n.t('views.messages.priority') %></strong>
-  </div>
-  <div>
-    <%= @task.priority %>
-  </div>
-  <div>
-    <strong><%= I18n.t('views.messages.end_date') %></strong>
-  </div>
-  <div>
-    <%= @task.end_date %>
+  <div class="col-12 col-md-8 pl-md-3 mb-2">
+    <div class="task_main_area shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="task_show_name shadow-none p-3 bg-light rounded">
+        <%= @task.task_name %>
+      </div>
+      <div class="task_show_detail">
+        <%= @task.task_detail %>
+      </div>
+      <div class="task_show_control_button">
+        <ul>
+          <li>
+            <%= link_to I18n.t('views.button.edit'), edit_task_path(@task.id), class: "btn btn-light btn-sm" %>
+          </li>
+          <li>
+            <%= link_to I18n.t('views.button.delete'), task_path(@task.id), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: '本当に削除しますか？' } %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
