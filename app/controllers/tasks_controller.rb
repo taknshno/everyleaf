@@ -1,9 +1,8 @@
 class TasksController < ApplicationController
+  before_action :set_tasks, only: [:index, :search]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks
-
     case params[:sort_by]
     when "priority"
       @tasks = @tasks.priority_asc
@@ -12,12 +11,10 @@ class TasksController < ApplicationController
     else
       @tasks = @tasks.default_order
     end
-
     @tasks = @tasks.page(params[:page])
   end
 
   def search
-    @tasks = current_user.tasks
     key_word = params[:key_word]
     key_status = params[:key_status]
 
@@ -75,5 +72,9 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def set_tasks
+    @tasks = Task.includes(:user).where(user_id: current_user.id)
   end
 end
