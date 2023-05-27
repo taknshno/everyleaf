@@ -16,6 +16,11 @@
   margin: 40px auto 0;
  }
 
+ .error_msg {
+  margin: 0 auto;
+  text-align: center;
+ }
+
  .edit-user-wrapper h1 {
   text-align: center;
  }
@@ -29,7 +34,7 @@
   text-align: center;
  }
 
- .alert-wrapper {
+ .flash-wrapper {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -41,7 +46,6 @@
   position: absolute;
   top: 10px;
   right: 5px;
-  width: 350px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 

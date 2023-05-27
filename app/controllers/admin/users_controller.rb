@@ -41,6 +41,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    flash[:success] = I18n.t('views.messages.deleted_user')
+    redirect_to admin_users_path
+  end
+
   def control
     case params[:act]
     when "grant"

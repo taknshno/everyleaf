@@ -11,6 +11,6 @@ ActiveStorage.start()
 
 $(document).on ("turbolinks:load", function(){
   setTimeout(function () {
-    $(".alert").hide();
+    $("#flash_msg").hide();
   }, 3000);
 });

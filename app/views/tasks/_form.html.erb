@@ -1,4 +1,5 @@
 <%= form_with(model: @task, local: true) do |f| %>
+  <div class="error_msg">
   <% if @task.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <a class="close" data-dismiss="alert" href="#">×</a>
@@ -10,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+  </div>
   <div class="form_input_area">
     <div class="task_title">
       <%= f.text_field :task_name, placeholder:"タスク名の入力", class: "form-control form-control-lg mb-3" %>
