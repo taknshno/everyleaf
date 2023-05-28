@@ -41,7 +41,7 @@ class TasksController < ApplicationController
       flash[:success] = I18n.t('views.messages.created_task')
       redirect_to tasks_path
     else
-      redirect_to new_task_path, params:{error_msg: @task.errors.full_messages}
+      render 'new'
     end
   end
 
