@@ -1,0 +1,33 @@
+<div class="edit-user-wrapper">
+  <div class="title_area">
+    <h1>ユーザー情報編集</h1>
+  </div>
+  <div class="form_input_area">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <div>
+        <div class="input-group">
+          <%= f.text_field :user_name, placeholder:"名前", class:"form-control mb-3", required: true %>
+        </div>
+        <div class="input-group">
+          <%= f.email_field :email, placeholder:"メールアドレス", class:"form-control mb-3", required: true %>
+        </div>
+        <div class="input-group">
+          <%= f.password_field :password, placeholder:"パスワード", class:"form-control mb-3", required: true %>
+        </div>
+        <div class="input-group">
+          <%= f.password_field :password_confirmation, placeholder:"パスワード(再確認)", class:"form-control mb-3", required: true %>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <%= f.check_box :admin, {id:"flexCheckDefault"}, "あり", "なし" %>
+            <%= f.label :admin, for: "flexCheckDefault", class:"form-check-label ml-1" %>
+          </label>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <%= link_to "戻る", user_path, class: "btn btn-secondary btn-lg w-25 mr-3" %>
+        <%= f.submit "編集する", class:"btn btn-primary btn-lg w-50" %>
+      </div>
+    <% end %>
+  </div>
+</div>

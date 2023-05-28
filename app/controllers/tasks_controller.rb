@@ -1,24 +1,20 @@
 class TasksController < ApplicationController
+  before_action :set_tasks, only: [:index, :search]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
-
     case params[:sort_by]
     when "priority"
       @tasks = @tasks.priority_asc
     when "end_date"
       @tasks = @tasks.end_date_desc
     else
-      @tasks = @tasks.default_desc
+      @tasks = @tasks.default_order
     end
-
     @tasks = @tasks.page(params[:page])
   end
 
   def search
-    @tasks = Task.all
-
     key_word = params[:key_word]
     key_status = params[:key_status]
 
@@ -32,7 +28,6 @@ class TasksController < ApplicationController
     end
 
     @tasks = @tasks.page(params[:page])
-
     render "index"
   end
 
@@ -41,11 +36,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path, notice: I18n.t('views.messages.created_task')
+      flash[:success] = I18n.t('views.messages.created_task')
+      redirect_to tasks_path
     else
-      render 'new'
+      redirect_to new_task_path, params:{error_msg: @task.errors.full_messages}
     end
   end
 
@@ -55,7 +51,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: I18n.t('views.messages.updated_task')
+      flash[:success] = I18n.t('views.messages.updated_task')
+      redirect_to tasks_path
     else
       render 'edit'
     end
@@ -63,7 +60,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: I18n.t('views.messages.deleted_task')
+    flash[:success] = I18n.t('views.messages.deleted_task')
+    redirect_to tasks_path
   end
 
   private
@@ -73,7 +71,10 @@ class TasksController < ApplicationController
   end
 
   def set_task
-     @task = Task.find(params[:id])
-   end
+    @task = Task.find(params[:id])
+  end
 
+  def set_tasks
+    @tasks = Task.includes(:user).where(user_id: current_user.id)
+  end
 end

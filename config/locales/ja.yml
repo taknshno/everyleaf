@@ -12,12 +12,17 @@ ja:
         status: ステータス
         priority: 優先度
         end_date: 終了期限
+        created_at: 作成日
+        updated_at: 更新日
       user:
-        user_name: 名前
+        user_name: ユーザ名
         email: メールアドレス
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
+        admin: 管理者権限
+        created_at: 登録日
+        updated_at: 更新日
         remember_me: ログインを記憶
     errors:
       messages:
@@ -201,6 +206,7 @@ ja:
     pm: 午後
   views:
     messages:
+      user_name: ユーザー
       task_name: タスク名
       task_detail: タスクの詳細
       status: ステータス
@@ -217,12 +223,33 @@ ja:
       task_show: "タスクの詳細"
       sort_by_priority: "優先度順"
       sort_by_end_date: "終了期限順"
+      input_error: "入力に誤りがあります"
+      updated_user: "ユーザー情報を更新しました"
+      update_task_failed: "ユーザー情報の更新に失敗しました"
+      delete_user: "アカウント削除"
+      created_user: "アカウントを作成しました"
+      deleted_user: "アカウントを削除しました"
+      delete_user_failed: "アカウントの削除に失敗しました"
+      logged_in: "ログインしました"
+      login_failed: "ログインに失敗しました"
+      logged_out: "ログアウトしました"
+      not_have_access: "アクセス権限がありません"
+      not_have_access_to_admin: "管理画面へのアクセス権限がありません"
+      control: "操作"
+      admin_page: "管理画面"
+      grant_admin: "管理者権限を付与しました"
+      ensure_admin: "管理者権限を抹消しました"
+      already_admin: "すでに管理者権限があります"
+      already_not_admin: "すでに管理者権限はありません"
+      change_admin_failed: "管理者権限の変更に失敗しました"
     button:
       submit: '登録'
       search: '検索'
       show: '詳細'
       edit: '編集'
       delete: '削除'
+      logged_in: 'ログインする'
+      user_delete: 'アカウント削除'
     pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"

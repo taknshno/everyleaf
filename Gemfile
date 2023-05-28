@@ -18,6 +18,7 @@ group :development, :test do
   gem "rspec-rails", "~> 4.0.1"
   gem 'factory_bot_rails'
   gem 'rexml'
+  gem 'faker'
 end
 
 group :development do
@@ -32,6 +33,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'bcrypt'
 gem 'kaminari', '~> 1.2.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'net-smtp'
