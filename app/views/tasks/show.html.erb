@@ -62,9 +62,7 @@
       <div class="task_labels">
         <ul>
           <% @task.labels.each do |label| %>
-            <%= link_to label_path(label.id) do %>
-              <li><span class="badge bg-info"><%= label.label_name %></span></li>
-            <% end %>
+            <li><span class="badge bg-info"><%= label.label_name %></span></li>
           <% end %>
         </ul>
       </div>
