@@ -12,20 +12,17 @@
     <tr>
       <th>ID</th>
       <th><%= I18n.t("activerecord.attributes.label.label_name") %></th>
-      <th>関連タスク数</th>
+      <th>登録タスク数</th>
       <th><%= I18n.t("views.messages.control") %></th>
     </tr>
     <% @labels.each do |label| %>
       <tr class="admin_user_record">
         <td class="label_id"><%= label.id %></td>
         <td class="label_name"><%= label.label_name %></td>
-        <td class="label_tasks_count">label.label_tasks.count　件</td>
+        <td class="label_tasks_count"><%= label.task_label_tasks.count %> 件</td>
         <td class="show_button">
           <div class="control-wrapper">
             <ul>
-              <li>
-                <%= link_to I18n.t('views.button.show'), admin_label_path(label.id), id: "show_#{label.id}", class: "btn btn-light btn-sm mb-0" %>
-              </li>
               <li>
                 <%= link_to I18n.t('views.button.edit'), edit_admin_label_path(label.id), id: "edit_#{label.id}", class: "btn btn-light btn-sm mb-0" %>
               </li>

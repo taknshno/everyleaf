@@ -1,7 +1,14 @@
 class LabelsController < ApplicationController
+  before_action :set_label, only: [:show]
 
   def index
     @labels = Label.all
+  end
+
+  def show
+  end
+
+  def edit
   end
 
   private

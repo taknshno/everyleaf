@@ -1,0 +1,28 @@
+<div class="title_area">
+  <h1>ラベルの編集</h1>
+</div>
+<div>
+  <div class="error_msg w-75">
+    <% if @label.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading"><%= @label.errors.count %>件のエラーがあります。</h4>
+        <ul>
+          <% @label.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <div class="form_input_area w-75 shadow-lg p-4 my-5 bg-white rounded">
+    <%= form_with(model: @label, url: admin_label_path,  local: true) do |f| %>
+      <div class="form-group mb-3 mx-auto">
+        <%= f.text_field :label_name, placeholder:"ラベル名を入力", class:"form-control", required: true %>
+      </div>
+      <div class="button-wrapper bm-3">
+        <%= link_to "戻る", admin_labels_path, class: "btn btn-secondary btn-lg w-25 mr-3" %>
+        <%= f.submit "編集する", class:"btn btn-primary btn-lg w-50" %>
+      </div>
+    <% end %>
+  </div>

@@ -1,5 +1,6 @@
 class Admin::LabelsController < ApplicationController
   before_action :admin_only
+  before_action :set_label, only: [:edit, :update, :destroy]
 
   def index
     @labels = Label.all
@@ -7,6 +8,9 @@ class Admin::LabelsController < ApplicationController
 
   def new
     @label = Label.new
+  end
+
+  def edit
   end
 
   def create
@@ -20,7 +24,31 @@ class Admin::LabelsController < ApplicationController
     end
   end
 
+  def update
+    if @label.update(label_params)
+      flash[:success] = I18n.t('views.messages.updated_label')
+      redirect_to admin_labels_path
+    else
+      flash[:danger] = I18n.t('views.messages.update_label_failed')
+      render :edit
+    end
+  end
+
+  def destroy
+    if @label.destroy
+      flash[:success] = I18n.t('views.messages.deleted_label')
+      redirect_to admin_labels_path
+    else
+      flash[:danger] = I18n.t('views.messages.delete_label_failed')
+      redirect_to admin_labels_path
+    end
+  end
+
   private
+
+  def set_label
+    @label = Label.find(params[:id])
+  end
 
   def label_params
     params.require(:label).permit(:label_name)

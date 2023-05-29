@@ -59,8 +59,14 @@
       <div class="task_item_name">
         <%= I18n.t('activerecord.models.label') %>
       </div>
-      <div class="task_item_value">
-        <%= @task.labels.map { |label| label["label_name"] }.join(", ") %>
+      <div class="task_labels">
+        <ul>
+          <% @task.labels.each do |label| %>
+            <%= link_to label_path(label.id) do %>
+              <li><span class="badge bg-info"><%= label.label_name %></span></li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
