@@ -29,7 +29,7 @@
  }
 
  .control-wrapper {
-  text-align: center;
+  margin: 0 auto;
  }
 
  .button-wrapper {
@@ -163,7 +163,31 @@
   list-style: none;
 }
 
+.task_labels ul {
+  margin: 0;
+  padding: 0;
+}
+
+.task_labels li {
+  list-style: none;
+}
+
+.admin_user_area {
+  margin: 40px auto 0;
+}
+
 .admin_user_area table {
+  margin: 40px auto;
+  table-layout: auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+.admin_label_area {
+  margin: 40px auto 0;
+}
+
+.admin_label_area table {
   margin: 40px auto;
   table-layout: auto;
   width: 100%;
@@ -175,6 +199,16 @@
   font-size: 0.7rem;
   text-align: center;
   padding: 8px;
+  border-top: 1px solid #0c0000;
+  border-bottom: 1px solid #0c0000;
+}
+
+.admin_label_area th {
+  color: #333333;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 8px;
+  border-top: 1px solid #0c0000;
   border-bottom: 1px solid #0c0000;
 }
 
@@ -183,6 +217,12 @@
 }
 
 .admin_user_area td {
+  font-size: 0.9rem;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.admin_label_area td {
   font-size: 0.9rem;
   padding: 10px 10px;
   text-align: center;
@@ -197,12 +237,9 @@
   border-top: 1px solid #cccccc;
 }
 
-.current_user {
-  border-left: 1px solid #cccccc;
-}
-
 .admin_user_record ul {
-  margin: 0;
+  display: table;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -313,15 +350,34 @@
 }
 
 .admin_control_bar {
-  margin-top: 40px;
-  margin-bottom: -40px;
-  padding: 8px;
-  text-align: right;
-  border-bottom: 1px solid #0c0000;
+  float: right;
+  padding: 10px;
+}
+
+.admin_control_bar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.admin_control_bar li {
+  padding: 0px 8px;
+  float: left;
+  width: auto;
+  list-style: none;
 }
 
 .pagination {
   justify-content: center;
   text-align: center;
   margin-top:  20px;
+}
+
+.current_user {
+  border-left: 1px solid #cccccc;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
 }

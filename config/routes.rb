@@ -16,5 +16,7 @@ Rails.application.routes.draw do
         get :control
       end
     end
+
+    resources :labels
   end
 end

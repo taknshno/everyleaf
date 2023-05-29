@@ -24,6 +24,10 @@ ja:
         created_at: 登録日
         updated_at: 更新日
         remember_me: ログインを記憶
+      label:
+        label_name: ラベル
+        created_at: 作成日
+        updated_at: 更新日
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -229,6 +233,8 @@ ja:
       delete_user: "アカウント削除"
       created_user: "アカウントを作成しました"
       deleted_user: "アカウントを削除しました"
+      created_label: "ラベルを登録しました"
+      deleted_label: "ラベルを削除しました"
       delete_user_failed: "アカウントの削除に失敗しました"
       logged_in: "ログインしました"
       login_failed: "ログインに失敗しました"
@@ -237,6 +243,7 @@ ja:
       not_have_access_to_admin: "管理画面へのアクセス権限がありません"
       control: "操作"
       admin_page: "管理画面"
+      admin_labels_page: "ラベル管理画面"
       grant_admin: "管理者権限を付与しました"
       ensure_admin: "管理者権限を抹消しました"
       already_admin: "すでに管理者権限があります"
