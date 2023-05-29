@@ -246,7 +246,7 @@ ja:
       not_have_access: "アクセス権限がありません"
       not_have_access_to_admin: "管理画面へのアクセス権限がありません"
       control: "操作"
-      admin_page: "管理画面"
+      admin_user_page: "ユーザー管理画面"
       admin_labels_page: "ラベル管理画面"
       grant_admin: "管理者権限を付与しました"
       ensure_admin: "管理者権限を抹消しました"

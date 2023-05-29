@@ -39,11 +39,7 @@ class TasksController < ApplicationController
       @tasks = @tasks.status_search(key_status)
       @tasks = @tasks.label_search(key_label_id.to_i)
     end
-
-    puts "+++++++"
-    p @tasks
-    puts "+++++++"
-
+    
     @tasks = @tasks.page(params[:page])
     render "index"
   end
