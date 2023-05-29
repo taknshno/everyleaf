@@ -15,4 +15,5 @@ class Task < ApplicationRecord
 
   scope :word_search, -> (key_word){ where("task_name LIKE ?", "%#{key_word}%") }
   scope :status_search, -> (key_status){ where(status: key_status) }
+  scope :label_search, -> (key_label_id){ where(id: TaskLabel.where(label_id: key_label_id).pluck(:task_id)) }
 end
