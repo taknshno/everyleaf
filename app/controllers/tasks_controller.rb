@@ -17,16 +17,29 @@ class TasksController < ApplicationController
   def search
     key_word = params[:key_word]
     key_status = params[:key_status]
+    key_label_id = params[:key_label_id]
 
-    if key_word.present? && key_status.present?
+    if key_word.present? && !key_status.present? && !key_label_id.present?
+      @tasks = @tasks.word_search(key_word)
+    elsif !key_word.present? && key_status.present? && !key_label_id.present?
+      @tasks = @tasks.status_search(key_status)
+    elsif !key_word.present? && !key_status.present? && key_label_id.present?
+      @tasks = @tasks.label_search(key_label_id.to_i)
+    elsif key_word.present? && key_status.present? && !key_label_id.present?
       @tasks = @tasks.word_search(key_word)
       @tasks = @tasks.status_search(key_status)
-    elsif key_word.present? && !key_status.present?
-      @tasks = @tasks.word_search(key_word)
-    elsif !key_word.present? && key_status.present?
+    elsif key_word.present? && !key_status.present? && key_label_id.present?
+      @tasks = @tasks.wor_search(key_word)
+      @tasks = @tasks.label_search(key_label_id.to_i)
+    elsif !key_word.present? && key_status.present? && key_label_id.present?
       @tasks = @tasks.status_search(key_status)
+      @tasks = @tasks.label_search(key_label_id.to_i)
+    elsif key_word.present? && key_status.present? && key_label_id.present?
+      @tasks = @tasks.word_search(key_word)
+      @tasks = @tasks.status_search(key_status)
+      @tasks = @tasks.label_search(key_label_id.to_i)
     end
-
+    
     @tasks = @tasks.page(params[:page])
     render "index"
   end
@@ -41,12 +54,11 @@ class TasksController < ApplicationController
       flash[:success] = I18n.t('views.messages.created_task')
       redirect_to tasks_path
     else
-      redirect_to new_task_path, params:{error_msg: @task.errors.full_messages}
+      render 'new'
     end
   end
 
   def edit
-
   end
 
   def update
@@ -67,7 +79,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:task_name, :task_detail, :status, :priority, :end_date)
+    params.require(:task).permit(:task_name, :task_detail, :status, :priority, :end_date, { label_ids: [] } )
   end
 
   def set_task

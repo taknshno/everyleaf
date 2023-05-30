@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :labels, only: [:index, :show]
 
   namespace :admin do
     resources :users do
@@ -16,5 +17,7 @@ Rails.application.routes.draw do
         get :control
       end
     end
+
+    resources :labels
   end
 end

@@ -1,9 +1,12 @@
 <div class="title_area">
-  <h1><%= I18n.t('views.messages.admin_page') %></h1>
+  <h1><%= I18n.t('views.messages.admin_user_page') %></h1>
 </div>
 <div class="admin_user_area">
   <div class="admin_control_bar">
-    <%= link_to '管理権限でユーザー作成', new_admin_user_path %>
+    <ul>
+      <li><%= link_to '>> 新規ユーザー作成', new_admin_user_path %></li>
+      <li><%= link_to '>> ラベル管理画面', admin_labels_path %></li>
+    </ul>
   </div>
   <table>
     <tr>

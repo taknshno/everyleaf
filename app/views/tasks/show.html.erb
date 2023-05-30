@@ -51,8 +51,20 @@
         <% if @task.end_date.nil? %>
           なし
         <% else %>
-          <%= @task.end_date %>
+          <%= @task.end_date.strftime('%Y年%-m月%-d日') %>
         <% end %>
+      </div>
+    </div>
+    <div class="col-12 px-3">
+      <div class="task_item_name">
+        <%= I18n.t('activerecord.models.label') %>
+      </div>
+      <div class="task_labels">
+        <ul>
+          <% @task.labels.each do |label| %>
+            <li><span class="badge bg-info"><%= label.label_name %></span></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

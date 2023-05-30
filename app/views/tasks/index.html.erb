@@ -1,6 +1,5 @@
 <div class="title_area">
   <h1><%= I18n.t('views.messages.task_list') %></h1>
-  <p><%= notice %></p>
 </div>
 <div class="sort_search_area justify-content-center">
   <div class="sort_bar col-4">
@@ -25,7 +24,8 @@
         <%= f.text_field :key_word, value: @key_word, placeholder: "タスク名を入力する", class: "form-control form-control-sm" %>
       </div>
       <div class="col-auto">
-        <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control form-control-sm"  %>
+        <%= f.select :key_status, Task.statuses.keys, { include_blank: "ステータスを選択する" }, value: @key_status, class: "form-control form-control-sm mb-1"  %>
+        <%= f.select :key_label_id, Label.all.collect { |l| [l.label_name, l.id] }, { include_blank: "ラベルを選択する" }, value: @key_label_id, class: "form-control form-control-sm"  %>
       </div>
       <div class="col-auto">
         <%= f.submit I18n.t('views.button.search'), class:"form-control form-control-sm" %>

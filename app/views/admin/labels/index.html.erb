@@ -1,0 +1,38 @@
+<div class="title_area">
+  <h1><%= I18n.t('views.messages.admin_labels_page') %></h1>
+</div>
+<div class="admin_user_area">
+  <div class="admin_control_bar">
+    <ul>
+      <li><%= link_to '>> ラベル新規作成', new_admin_label_path %></li>
+      <li><%= link_to '>> ユーザー管理画面', admin_users_path %></li>
+    </ul>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th><%= I18n.t("activerecord.attributes.label.label_name") %></th>
+      <th>登録タスク数</th>
+      <th><%= I18n.t("views.messages.control") %></th>
+    </tr>
+    <% @labels.each do |label| %>
+      <tr class="admin_user_record">
+        <td class="label_id"><%= label.id %></td>
+        <td class="label_name"><%= label.label_name %></td>
+        <td class="label_tasks_count"><%= label.task_label_tasks.count %> 件</td>
+        <td class="show_button">
+          <div class="control-wrapper">
+            <ul>
+              <li>
+                <%= link_to I18n.t('views.button.edit'), edit_admin_label_path(label.id), id: "edit_#{label.id}", class: "btn btn-light btn-sm mb-0" %>
+              </li>
+              <li>
+                <%= link_to I18n.t('views.button.delete'), admin_label_path(label.id), id: "delete_#{label.id}", method: :delete, class: "btn btn-danger btn-sm mb-0", data: { confirm: '本当に削除しますか？' } %>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

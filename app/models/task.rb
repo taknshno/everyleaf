@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :task_labels, dependent: :destroy
+  has_many :labels, through: :task_labels
 
   enum status: { 未着手: 1, 着手: 2, 完了: 3 }
   enum priority: { 高: 1, 中: 2, 低: 3 }
@@ -13,4 +15,5 @@ class Task < ApplicationRecord
 
   scope :word_search, -> (key_word){ where("task_name LIKE ?", "%#{key_word}%") }
   scope :status_search, -> (key_status){ where(status: key_status) }
+  scope :label_search, -> (key_label_id){ where(id: TaskLabel.where(label_id: key_label_id).pluck(:task_id)) }
 end
